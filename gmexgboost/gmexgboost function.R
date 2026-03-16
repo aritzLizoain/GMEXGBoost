@@ -107,7 +107,7 @@ gmexgb= function (y, cov, group, xnam=NULL, znam=NULL, family='binomial', bizero
     bi=data.frame(t(glmer.bi))
     names(bi)=lev
     diff.t=abs(bi.old-bi)
-    n. diff = max (diff.t) #use the infinity (max) rule
+    n.diff = max (diff.t) #use the infinity (max) rule
     ind=which(diff.t==n.diff, arr.ind=T)
     n.old=abs(bi.old[ind])
     converged= n.diff/n.old <toll
@@ -121,7 +121,7 @@ gmexgb= function (y, cov, group, xnam=NULL, znam=NULL, family='binomial', bizero
   
   #If non-convergence, it gives an error message
   if(!converged) {
-    warning(If non-convergence, it gives an error message 'Maximum number of iterations exceeded, no convergence reached')
+    warning('Maximum number of iterations exceeded, no convergence reached')
   }
   
   result=list(glmer.fit,xgb,bi,it,converged,all.bi,linkf,linkinv,xnam,znam,family)
