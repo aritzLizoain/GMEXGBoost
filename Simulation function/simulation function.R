@@ -133,7 +133,7 @@ sim_pref_total=function(N,n_train,n_test,alpha,beta,gama2,delta2,
   predictors = trainset |> 
     select(group,x1:x7) |> 
     data.matrix()
-  label = as.numeric(trainset$y)-1
+  label = as.factor(as.numeric(trainset$y)-1)
   fit_xgb = xgboost(
     data=predictors, label=label,
     params=list(
